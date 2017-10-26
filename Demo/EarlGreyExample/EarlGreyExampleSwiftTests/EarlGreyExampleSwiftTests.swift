@@ -45,6 +45,20 @@ class EarlGreyExampleSwiftTests: XCTestCase {
       .perform(grey_tap())
       .assert(with: grey_sufficientlyVisible())
   }
+    
+  func testDoubleTapSelectionActionAssert() {
+    // Select and tap the button with Accessibility ID "clickMe", then assert it's visible.
+    EarlGrey.select(elementWithMatcher: grey_accessibilityID("ClickMe"))
+      .perform(grey_doubleTap())
+      .assert(with: grey_sufficientlyVisible())
+  }
+
+  func testLongPressSelectionActionAssert() {
+    // Select and tap the button with Accessibility ID "clickMe", then assert it's visible.
+    EarlGrey.select(elementWithMatcher: grey_accessibilityID("ClickMe"))
+      .perform(grey_longPress())
+      .assert(with: grey_sufficientlyVisible())
+  }
 
   func testSelectionOnMultipleElements() {
     // This test will fail because both buttons are visible and match the selection.
